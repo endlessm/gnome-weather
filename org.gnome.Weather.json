@@ -1,0 +1,81 @@
+{
+  "app-id" : "org.gnome.Weather",
+  "branch" : "stable",
+  "runtime" : "org.gnome.Platform",
+  "runtime-version" : "3.22",
+  "sdk" : "org.gnome.Sdk",
+  "command" : "gnome-weather",
+  "finish-args" : [
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--share=network",
+    "--system-talk-name=org.freedesktop.GeoClue2",
+    "--filesystem=xdg-run/dconf",
+    "--filesystem=~/.config/dconf:ro",
+    "--talk-name=ca.desrt.dconf",
+    "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+  ],
+  "build-options" : {
+    "cflags" : "-O2 -g",
+    "cxxflags" : "-O2 -g",
+    "env" : {
+      "V" : "1"
+    }
+  },
+  "cleanup" : ["/include","/lib/pkgconfig", "/share/pkgconfig",
+               "/share/aclocal", "/man", "/share/man", "/share/gtk-doc",
+               "/share/vala", "*.la", "*.a" ],
+  "cleanup-commands" : [
+    "desktop-file-edit \"--set-name=Weather\" /app/share/applications/org.gnome.Weather.Application.desktop"
+  ],
+  "modules" : [
+    {
+      "name" : "geocode-glib",
+      "sources" : [
+        {
+          "url" : "https://download.gnome.org/sources/geocode-glib/3.20/geocode-glib-3.20.1.tar.xz",
+          "sha256" : "669fc832cabf8cc2f0fc4194a8fa464cdb9c03ebf9aca5353d7cf935ba8637a2",
+          "type" : "archive"
+        }
+      ]
+    },
+    {
+      "name" : "libgweather",
+      "config-opts" : [
+        "--disable-vala"
+      ],
+      "sources" : [
+        {
+          "url" : "https://download.gnome.org/sources/libgweather/3.20/libgweather-3.20.3.tar.xz",
+          "sha256" : "fb6bc5b64ef5db3dc40a9798f072b83ebcafe7ff5af472aaee70600619b56c0b",
+          "type" : "archive"
+        }
+      ]
+    },
+    {
+      "name" : "gnome-desktop",
+      "config-opts" : [
+        "--disable-debug-tools",
+        "--disable-udev"
+      ],
+      "sources" : [
+        {
+          "url" : "https://download.gnome.org/sources/gnome-desktop/3.22/gnome-desktop-3.22.0.tar.xz",
+          "sha256" : "cff36ccd8d0a62177a4c1513ec70d13ead3b84fdc208ba54199cf7616f05644d",
+          "type" : "archive"
+        }
+      ]
+    },
+    {
+      "name" : "gnome-weather",
+      "sources" : [
+        {
+          "url": "https://github.com/endlessm/gnome-weather.git",
+          "branch": "master",
+	  "type": "git"
+        }
+      ]
+    }
+  ]
+}
