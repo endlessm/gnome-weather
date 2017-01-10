@@ -1,11 +1,11 @@
 {
-  "app-id" : "org.gnome.Weather",
+  "app-id" : "org.gnome.Weather.Application",
   "branch" : "stable",
   "runtime" : "org.gnome.Platform",
   "runtime-version" : "3.22",
   "sdk" : "org.gnome.Sdk",
   "command" : "gnome-weather",
-  "rename-appdata-file": "org.gnome.Weather.Application.appdata.xml",
+  "rename-icon" : "org.gnome.Weather",
   "finish-args" : [
     "--share=ipc",
     "--socket=x11",
