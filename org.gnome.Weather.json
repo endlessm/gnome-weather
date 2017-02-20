@@ -71,7 +71,7 @@
       "name" : "gnome-weather",
       "sources" : [
         {
-          "url": "https://github.com/endlessm/gnome-weather.git",
+          "url": "git://github.com/endlessm/gnome-weather",
           "branch": "master",
 	  "type": "git"
         }
