@@ -2,7 +2,7 @@
   "app-id" : "org.gnome.Weather.Application",
   "branch" : "stable",
   "runtime" : "org.gnome.Platform",
-  "runtime-version" : "3.22",
+  "runtime-version" : "3.24",
   "sdk" : "org.gnome.Sdk",
   "command" : "gnome-weather",
   "rename-icon" : "org.gnome.Weather",
@@ -73,7 +73,7 @@
       "name" : "gnome-weather",
       "sources" : [
         {
-          "url": "git://github.com/endlessm/gnome-weather",
+          "url": "https://github.com/endlessm/gnome-weather.git",
           "branch": "master",
 	  "type": "git"
         }
